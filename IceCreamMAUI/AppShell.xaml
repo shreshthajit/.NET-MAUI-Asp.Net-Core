@@ -4,12 +4,36 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:IceCreamMAUI"
+    xmlns:pages="clr-namespace:IceCreamMAUI.Pages"
     Shell.FlyoutBehavior="Disabled"
     Title="IceCreamMAUI">
 
-    <ShellContent
+    <ShellContent ContentTemplate="{DataTemplate pages:OnboardingPage}" />
+
+    <TabBar>
+        <ShellContent 
+            Title="Home"
+            Icon="home"
+            ContentTemplate="{DataTemplate pages:HomePage}"
+            Route="HomePage"
+            />
+        <ShellContent 
+         Title="Cart"
+         Icon="cart"
+         ContentTemplate="{DataTemplate pages:CartPage}"
+         Route="CartPage"
+         />
+        <ShellContent 
+         Title="Profile"
+         Icon="user"
+         ContentTemplate="{DataTemplate pages:ProfilePage}"
+         Route="ProfilePage"
+         />
+    </TabBar>
+
+    <!--<ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" />-->
 
 </Shell>
