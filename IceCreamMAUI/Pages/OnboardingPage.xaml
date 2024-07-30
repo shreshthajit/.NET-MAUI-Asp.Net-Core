@@ -12,5 +12,17 @@
                 Clicked="Button_Clicked"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"/>
+
+        <Button Text="Signin"
+         Clicked="Signin_Clicked"
+         VerticalOptions="Center"
+         HorizontalOptions="Center"/>
+
+        <Button Text="Signup"
+         Clicked="Signup_Clicked"
+         VerticalOptions="Center"
+         HorizontalOptions="Center"/>
+        
+        
     </VerticalStackLayout>
 </ContentPage>

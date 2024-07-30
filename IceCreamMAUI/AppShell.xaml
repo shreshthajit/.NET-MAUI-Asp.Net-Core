@@ -12,7 +12,7 @@
         ContentTemplate="{DataTemplate pages:OnboardingPage}"
         Shell.FlyoutBehavior="Disabled"/>
 
-    <TabBar>
+    <TabBar FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent 
             Title="Home"
             Icon="home"
@@ -32,6 +32,23 @@
          Route="ProfilePage"
          />
     </TabBar>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="Auto, *">
+                <Image
+                    Grid.Column="0"
+                    HeightRequest="24"
+                    Source="{Binding FlyoutIcon}"
+                    WidthRequest="50" />
+                <Label 
+                    Grid.Column="1"
+                    Text="{Binding Title}"
+                    TextColor="DeepPink"
+                    FontSize="16"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 
     <!--<ShellContent
         Title="Home"
