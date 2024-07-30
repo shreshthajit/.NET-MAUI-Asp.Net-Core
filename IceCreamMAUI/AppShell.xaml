@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+    
 <Shell
     x:Class="IceCreamMAUI.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -8,9 +9,14 @@
     Shell.FlyoutBehavior="Flyout"
     Title="IceCreamMAUI">
 
+    <!--<ShellContent
+    Title="Home"
+    ContentTemplate="{DataTemplate local:MainPage}"
+    Route="MainPage" />-->
     <ShellContent 
         ContentTemplate="{DataTemplate pages:OnboardingPage}"
-        Shell.FlyoutBehavior="Disabled"/>
+        Shell.FlyoutBehavior="Disabled"
+        Shell.FlyoutItemIsVisible="False"/>
 
     <TabBar FlyoutDisplayOptions="AsMultipleItems">
         <ShellContent 
@@ -33,26 +39,100 @@
          />
     </TabBar>
 
+    <MenuItem Text="Signout"
+              IconImageSource="logout"
+              Clicked="SignoutMenuItem_Clicked"/>
+    
+    
     <Shell.ItemTemplate>
         <DataTemplate>
-            <Grid ColumnDefinitions="Auto, *">
+            <Grid 
+                ColumnDefinitions="Auto, *, Auto"
+                Padding="10"
+                ColumnSpacing="15"
+                RowSpacing="5"
+                RowDefinitions="Auto, Auto">
                 <Image
+                    Grid.Row="0"
                     Grid.Column="0"
                     HeightRequest="24"
                     Source="{Binding FlyoutIcon}"
                     WidthRequest="50" />
                 <Label 
+                    Grid.Row="0"
                     Grid.Column="1"
                     Text="{Binding Title}"
                     TextColor="DeepPink"
                     FontSize="16"/>
+                <Image 
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Source="right_arrow"
+                    WidthRequest="24"/>
+                <BoxView Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="1" Color="Pink"></BoxView>
+
             </Grid>
         </DataTemplate>
     </Shell.ItemTemplate>
 
-    <!--<ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />-->
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid 
+          ColumnDefinitions="Auto, *"
+          Padding="10"
+          ColumnSpacing="15"
+          RowSpacing="5">
+          <Image
+          Grid.Row="0"
+          Grid.Column="0"
+          HeightRequest="24"
+          Source="{Binding Icon}"
+          WidthRequest="50" />
+          <Label 
+          Grid.Row="0"
+          Grid.Column="1"
+          Text="{Binding Text}"
+          TextColor="DeepPink"
+          FontSize="16"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    <Shell.FlyoutHeader>
+        <Border BackgroundColor="DeepPink"
+                Padding="10"
+                StrokeThickness="0">
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Image Source="ice_cream"
+                HeightRequest="150"
+                WidthRequest="150"
+                HorizontalOptions="Center"
+                />
+                <Label  Text="MAUI Ice Cream"
+                        HorizontalOptions="Center"
+                        TextColor="White"
+                        FontSize="18"
+                        TextTransform="Uppercase"
+                        FontAttributes="Bold"/>
+            </VerticalStackLayout>
+        </Border>
+    </Shell.FlyoutHeader>
+
+
+    <Shell.FlyoutFooter>
+        <Border BackgroundColor="DeepPink"
+                Padding="10"
+                StrokeThickness="0">
+
+            <Label FontAttributes="Bold"
+                   FontSize="15"
+                   HorizontalOptions="Center"
+                   Text="Developed by Shreshthajit Das"
+                   TextColor="White"/>
+            <Border.GestureRecognizers>
+                <TapGestureRecognizer Tapped="FlyoutFooter_Tapped"/>
+            </Border.GestureRecognizers>
+        </Border>
+    </Shell.FlyoutFooter>
 
 </Shell>

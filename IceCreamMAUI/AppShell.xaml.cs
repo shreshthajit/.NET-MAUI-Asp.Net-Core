@@ -27,5 +27,15 @@ namespace IceCreamMAUI
                 Routing.RegisterRoute(pageType.Name, pageType);//in the bracket nameof(SigninPage) is route name
             }
         }
+
+        private async void FlyoutFooter_Tapped(object sender, TappedEventArgs e)
+        {
+            await Launcher.OpenAsync("https://github.com/shreshthajit");
+        }
+
+        private async void SignoutMenuItem_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.DisplayAlert("Alert", "Signout menu item clicked", "ok");
+        }
     }
 }
