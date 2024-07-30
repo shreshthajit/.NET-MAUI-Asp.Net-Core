@@ -29,9 +29,9 @@
         </VerticalStackLayout>
 
         <VerticalStackLayout Grid.Row="1" Spacing="20" HorizontalOptions="Center">
-            <Button Text="Signup"></Button>
+            <Button Text="Signup" Clicked="Signup_Clicked"></Button>
 
-            <Button Text="Signin"></Button>
+            <Button Text="Signin" Clicked="Signin_Clicked"></Button>
         </VerticalStackLayout>
         
         
