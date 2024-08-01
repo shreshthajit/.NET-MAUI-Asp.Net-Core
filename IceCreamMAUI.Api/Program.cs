@@ -1,4 +1,5 @@
 using IceCreamMAUI.Api.Data;
+using IceCreamMAUI.Api.Endpoints;
 using IceCreamMAUI.Api.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -29,11 +30,12 @@ builder.Services.AddAuthentication(options =>
 
 
 //Add authorization
-builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
 
 
 builder.Services.AddTransient<TokenService>()
-                .AddTransient<PasswordService>();
+                .AddTransient<PasswordService>()
+                .AddTransient<AuthService>(); 
 
 
 
@@ -55,6 +57,10 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapEndpoints();
+
+
 
 app.MapControllers();
 

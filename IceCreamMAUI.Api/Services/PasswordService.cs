@@ -21,12 +21,14 @@ namespace IceCreamMAUI.Api.Services
 
         }
 
-        public bool Compare(string plainPassword, string salt, string hashedPassword)
+        public bool AreEqual(string plainPassword, string salt, string hashedPassword)
         {
             var newHashedPassword = GenerateHashedPassword(plainPassword, salt);
             return newHashedPassword == hashedPassword;
 
         }
+
+
 
         private static  string GenerateHashedPassword(string plainPassword, string salt)
         {
